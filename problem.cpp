@@ -229,7 +229,9 @@ int main(){
       tree.set(--Q[1],S({Q[2],-Q[2],Q[2],Q[2],-inf,Q[2],true}));
     }else{
       assert(Q[0]==2);
-      ans.emplace_back(tree.prod(--Q[1],Q[2]).ans);
+      auto ret=tree.prod(--Q[1],Q[2]).ans%1000000007;
+      if(ret<0)ret+=1000000007;
+      ans.emplace_back(ret);
     }
   }
   for(size_t i=0;i<ans.size();++i)cout<<ans[i]<<" \n"[i+1==ans.size()];
